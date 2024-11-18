@@ -1,6 +1,6 @@
 # Rabbel Solver
 
-A tool for solving the word puzzel rabbel.se.
+A tool for solving the word puzzle [rabbel.se](https://rabbel.se).
 
 ## Description
 
