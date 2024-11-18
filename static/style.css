@@ -1,0 +1,93 @@
+.grid-container {
+    margin: 20px 0;
+}
+
+.grid-row {
+    display: flex;
+    justify-content: center;
+}
+
+.grid-cell {
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.grid-cell:focus {
+    outline: 2px solid #007bff;
+    border-color: #007bff;
+}
+.matrix-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.matrix-row {
+    display: flex;
+}
+
+.matrix-cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
+    background-color: #f8f9fa;
+}
+
+.word-item {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #f8f9fa;
+    border-radius: 3px;
+}
+
+.results-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.word-group {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.word-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.word-card {
+    padding: 8px 12px;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.1em;
+    transition: transform 0.1s;
+}
+
+.word-card:hover {
+    transform: scale(1.05);
+    background-color: #e9ecef;
+    cursor: pointer;
+}
+
+.controls {
+    max-width: 300px;
+    margin: 20px auto;
+}

@@ -102,13 +102,17 @@ matrix = [
 #     ['E', 'I', 'A', 'V']
 # ]
 
-all_words = find_words(matrix, max_length=6)
-# print(all_words)
-comparison_df = compare_list_to_df(all_words, word_df, 'lemma')
-matches = comparison_df.loc[comparison_df['in_df'] == True]
-# Remove rows where any column contains 'X' or 'Y'
-filtered_df = matches[~matches.astype(str).apply(lambda x: x.str.contains('k|ö|o', case=False)).any(axis=1)]
-column_name = 'word'
-filtered_df[f'{column_name}_length'] = filtered_df[column_name].str.len()
-filtered_df = filtered_df.sort_values(by=f'{column_name}_length', ascending=True)
-filtered_df.to_csv('result.csv')
+def solve_word_matrix(matrix, max_length=8):
+    all_words = find_words(matrix, max_length=max_length)
+    comparison_df = compare_list_to_df(all_words, word_df, 'lemma')
+    matches = comparison_df.loc[comparison_df['in_df'] == True]
+    column_name = 'word'
+    matches[f'{column_name}_length'] = matches[column_name].str.len()
+    matches = matches.sort_values(by=f'{column_name}_length', ascending=False)
+    # Remove rows where any column contains 'X' or 'Y'
+    # filtered_df = matches[~matches.astype(str).apply(lambda x: x.str.contains('k|ö|o', case=False)).any(axis=1)]
+    word_list = matches[column_name].tolist()
+    return word_list
+
+
+# print(solve_word_matrix(matrix))

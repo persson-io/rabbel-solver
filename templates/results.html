@@ -1,0 +1,43 @@
+<!-- templates/results.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1>Rabbel Solutions</h1>
+
+    <!-- Display input matrix -->
+    <div class="matrix-display mb-4">
+        <h3>Input Matrix</h3>
+        {% for row in matrix %}
+        <div class="matrix-row">
+            {% for cell in row %}
+            <div class="matrix-cell">{{ cell }}</div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Display solutions -->
+    <h2>Found Words ({{ total_words }} total)</h2>
+    
+    <!-- Debug output -->
+    {% if not grouped_solutions %}
+        <p class="alert alert-warning">No solutions found</p>
+    {% endif %}
+
+    <!-- Solutions display -->
+    <div class="results-container">
+        {% for length, words in grouped_solutions.items() %}
+        <div class="word-group">
+            <h3>{{ length }} Letters ({{ words|length }})</h3>
+            <div class="word-grid">
+                {% for word in words|sort %}
+                <div class="word-card">{{ word }}</div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <a href="/" class="btn btn-primary mt-3">Try Another</a>
+</div>
+{% endblock %}
